@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useState, useRef } from 'react';
 import { useAuth } from '../context/AuthContext';
 import type { DocumentData } from '../types/Document';
 import { api } from '../services/api';
@@ -19,6 +19,8 @@ export default function DocumentsPage() {
   const [selectedDoc, setSelectedDoc] = useState<DocumentData | null>(null);
   const [newMatricula, setNewMatricula] = useState('');
   const size = 50;
+
+  const didFetch = useRef(false);
 
   // WebSocket handler
   const handleDocumentUpdate = useCallback((updated: DocumentData) => {
@@ -42,8 +44,9 @@ export default function DocumentsPage() {
     }
   };
 
-  // Obter documentos
-  const fetchDocuments = async () => {
+  // Obter documentos (protegido contra múltiplas execuções)
+  const fetchDocuments = useCallback(async () => {
+    if (loading) return; // Evita chamadas concorrentes
     setLoading(true);
     try {
       const res = await api.get(`/documents?starting_doc=${startingDoc}&size=${size}`);
@@ -54,7 +57,7 @@ export default function DocumentsPage() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [startingDoc, size, loading]);
 
   // Handlers para modal
   const handleClickDoc = (doc: DocumentData) => {
@@ -70,9 +73,16 @@ export default function DocumentsPage() {
 
   // Proteção contra token expirado
   useEffect(() => {
-    if (!token || isTokenExpired()) navigate('/login');
-    fetchDocuments();
-  }, []);
+    if (!token || isTokenExpired()) {
+      navigate('/login');
+      return;
+    }
+    if (!didFetch.current) {
+      fetchDocuments();
+      didFetch.current = true;
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [token, navigate]);
 
   return (
     <div className="w-full h-screen bg-gray flex flex-col">
