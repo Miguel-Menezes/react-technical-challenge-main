@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+@import "tailwindcss";
+
+/* Cores personalizadas (usa em tailwind.config.js se precisares de classes utilitárias) */
+@theme {
+  --color-gray: #f2f2f2;
+  --color-gray-dark: #999999;
+  --color-gray-soft: #DEDEDE;
+  --color-red: #ff0000;
+  --color-red-soft: #ffeaea;
+  --color-error: #fd9999;
+  --color-black: #3e3e3e;
+  --color-green: #51bf90;
+}
+
+#root {
+  font-family: 'Open Sans', sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  height: 100%;
+  width: 100%;
+  background-color: #242424;
+}
+
+/* Scrollbar */
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hidden {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none;    /* Firefox */
+}
+
+/* Icon Animations */
+.close-button:hover img {
+  filter: brightness(0) invert(0);
+}
+.logout-button img {
+  filter: brightness(0) invert(0.6);
+  transition: all 0.2s ease-in-out;
+}
+.logout-button:hover img {
+  filter: none;
+}
+
+.fundo-modal {
+  background-color: rgba(0, 0, 0, 0.6);
+}
