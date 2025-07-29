@@ -18,7 +18,7 @@ export default function DocumentsPage() {
   const [loading, setLoading] = useState(false);
   const [selectedDoc, setSelectedDoc] = useState<DocumentData | null>(null);
   const [newMatricula, setNewMatricula] = useState('');
-  const size = 3;
+  const size = 50;
 
   // WebSocket handler
   const handleDocumentUpdate = useCallback((updated: DocumentData) => {
@@ -79,14 +79,14 @@ export default function DocumentsPage() {
       <Header />
 
       <div className="flex-1 overflow-hidden bg-gray p-6">
-        <div className="bg-white rounded-xl h-full flex flex-col p-5">
-          <h1 className="text-sm text-red mb-4">LISTA DE PESAGENS</h1>
+        <div className="bg-white rounded-[15px] h-full flex flex-col p-5">
+          <h1 className="text-[13px] text-red mb-4">LISTA DE PESAGENS</h1>
 
           <div className="flex-1 overflow-y-auto scrollbar-hidden">
             <table className="w-full table-auto border-collapse">
               <thead className="sticky top-0 bg-white text-xs text-black">
                 <tr>
-                  <th className="p-4 text-left">Data</th>
+                  <th className="p-4 text-left w-[20%]">Data</th>
                   <th className="p-4 text-left">Matrícula</th>
                   <th className="p-4 text-right">Peso líquido (kg)</th>
                 </tr>
@@ -108,7 +108,7 @@ export default function DocumentsPage() {
               <button
                 onClick={fetchDocuments}
                 disabled={loading}
-                className="border border-red text-red py-2 px-4 rounded text-xs hover:bg-red hover:text-white transition-colors duration-200"
+                className="border border-red text-red py-2 px-4 rounded-[8px] text-xs hover:bg-red hover:text-white transition-colors duration-200"
               >
                 {loading ? 'Carregando...' : 'CARREGAR MAIS PESAGENS'}
               </button>

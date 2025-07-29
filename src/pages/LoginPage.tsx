@@ -29,12 +29,12 @@ export default function LoginPage() {
           </div>
 
           {!error ? (
-            <div className="text-[15px] text-center text-gray-dark text-sm mb-10">
+            <div className="text-[15px] text-center text-gray-dark mb-10">
               <h2>Bem-vindo(a)!</h2>
               <p>Introduza as suas credenciais de acesso:</p>
             </div>
           ) : (
-            <div className="text-[15px] text-center text-error text-sm max-w-xs mx-auto mb-10">
+            <div className="text-[15px] text-center text-error max-w-xs mx-auto mb-10">
               <p>{error}</p>
             </div>
           )}
@@ -63,7 +63,7 @@ export default function LoginPage() {
               type="submit"
               className="min-w-[192px] bg-red text-[13px] text-white py-2 rounded-[8px] hover:bg-gray-dark transition-colors"
             >
-              Entrar
+              ENTRAR
             </button>
             </div>
           </form>

@@ -15,14 +15,14 @@ export default function EditMatriculaModal({ matricula, onChange, onCancel, onSa
         <div className="flex items-center justify-between mb-5">
           <div className="flex items-center gap-2">
             <img src={editIcon} alt="Editar" />
-            <h2 className="text-base font-medium">Editar Matrícula</h2>
+            <h2 className="text-[15px]">EDITAR MATRÍCULA</h2>
           </div>
           <button onClick={onCancel} aria-label="Fechar" className='close-button'>
             <img src={closeIcon} alt="Fechar" />
           </button>
         </div>
 
-        <label className="text-sm text-gray-dark block mb-1">Matrícula</label>
+        <label className="text-[13px] text-gray-dark block mb-1">Matrícula</label>
         <input
           type="text"
           value={matricula}
@@ -36,13 +36,13 @@ export default function EditMatriculaModal({ matricula, onChange, onCancel, onSa
         <div className="flex justify-between">
           <button
             onClick={onCancel}
-            className="px-4 py-2 text-sm text-gray-dark rounded-[8px] border border-gray-dark hover:bg-red hover:text-white hover:border-red transition-colors"
+            className="px-4 py-2 text-[13px] text-gray-dark rounded-[8px] border border-gray-dark hover:bg-red hover:text-white hover:border-red transition-colors"
           >
             Cancelar
           </button>
           <button
             onClick={onSave}
-            className="px-4 py-2 text-sm text-red rounded-[8px] border border-red hover:bg-red hover:text-white transition-colors"
+            className="px-4 py-2 text-[13px] text-red rounded-[8px] border border-red hover:bg-red hover:text-white transition-colors"
           >
             Guardar
           </button>

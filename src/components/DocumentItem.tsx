@@ -16,7 +16,7 @@ const DocumentItem = ({ doc, index, onClick }: Props) => {
         index % 2 === 0 ? 'bg-gray' : 'bg-white'
       } cursor-pointer hover:bg-red-soft transition-colors duration-200 h-[60px]`}
     >
-      <td className="px-5 text-black text-sm rounded-l-[8px]">
+      <td className="px-5 text-black text-[13px] rounded-l-[8px]">
         <div className="flex flex-wrap xl:flex-nowrap items-center gap-2">
           <span>{formatDate(doc.data)}</span>
           <span className="hidden xl:inline">-</span>
@@ -24,12 +24,12 @@ const DocumentItem = ({ doc, index, onClick }: Props) => {
         </div>
       </td>
 
-      <td className="px-5 text-black text-sm">
+      <td className="px-5 text-black text-[13px]">
         {doc.matricula}
       </td>
 
       <td className="px-5 text-green text-2xl font-bold text-right rounded-r-[8px]">
-        {calculateWeight(doc.linhas).toLocaleString('pt-PT').replace(/\s/g, '.')} kg
+        {calculateWeight(doc.linhas).toLocaleString('en-US').replace(',', '.')} kg
       </td>
     </tr>
   );
