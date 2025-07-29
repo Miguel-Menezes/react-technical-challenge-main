@@ -120,7 +120,7 @@ export default function DocumentsPage() {
                 disabled={loading}
                 className="border border-red text-red py-2 px-4 rounded-[8px] text-xs hover:bg-red hover:text-white transition-colors duration-200"
               >
-                {loading ? 'Carregando...' : 'CARREGAR MAIS PESAGENS'}
+                {loading ? 'LOADING...' : 'CARREGAR MAIS PESAGENS'}
               </button>
             </div>
           </div>
