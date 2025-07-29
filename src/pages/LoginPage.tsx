@@ -29,12 +29,12 @@ export default function LoginPage() {
           </div>
 
           {!error ? (
-            <div className="text-center text-gray-dark text-sm mb-4">
+            <div className="text-[15px] text-center text-gray-dark text-sm mb-10">
               <h2>Bem-vindo(a)!</h2>
               <p>Introduza as suas credenciais de acesso:</p>
             </div>
           ) : (
-            <div className="text-center text-error text-sm mb-4 max-w-xs mx-auto">
+            <div className="text-[15px] text-center text-error text-sm max-w-xs mx-auto mb-10">
               <p>{error}</p>
             </div>
           )}
@@ -45,7 +45,7 @@ export default function LoginPage() {
               placeholder="O seu email"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
-              className={`w-full p-2 rounded bg-white placeholder:text-gray-dark border ${error ? 'border-error' : 'border-gray-soft'} focus:outline-none focus:border-gray-dark`}
+              className={`w-full px-[11px] py-[9px] text-black rounded-[8px] bg-white placeholder:text-[13px] placeholder:text-gray-dark ${error && 'border border-error'} focus:outline-none focus:border-gray-dark`}
               required
             />
 
@@ -54,19 +54,21 @@ export default function LoginPage() {
               placeholder="Palavra-passe"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className={`w-full p-2 rounded bg-white placeholder:text-gray-dark border ${error ? 'border-error' : 'border-gray-soft'} focus:outline-none focus:border-gray-dark`}
+              className={`w-full px-[11px] py-[9px] text-black rounded-[8px] bg-white placeholder:text-[13px] placeholder:text-gray-dark ${error && 'border border-error'} focus:outline-none focus:border-gray-dark`}
               required
             />
-
+            
+            <div className='flex justify-center mt-[69px]'>
             <button
               type="submit"
-              className="w-full bg-red text-white py-2 rounded hover:bg-gray-dark transition-colors"
+              className="min-w-[192px] bg-red text-[13px] text-white py-2 rounded-[8px] hover:bg-gray-dark transition-colors"
             >
               Entrar
             </button>
+            </div>
           </form>
 
-          <div className="flex justify-center mt-10">
+          <div className="flex justify-center mt-[62px]">
             <img src={balancaMarquesLogo} alt="Logo" />
           </div>
         </div>
